@@ -1,0 +1,33 @@
+{
+  "memory": {
+    "hallucination": "Recall of events, object states, or actions that did not happen.",
+    "memory_retrieval_failure": "Relevant information exists but is not retrieved.",
+    "over_simplification": "A complex previous observation is reduced to an incomplete summary."
+  },
+  "reflection": {
+    "progress_misjudge": "Incorrectly estimates how close the agent is to completing the task.",
+    "outcome_misinterpretation": "Misreads direct action or environment feedback.",
+    "causal_misattribution": "Attributes a failure to the wrong cause.",
+    "hallucination": "Believes an action or result occurred when it did not."
+  },
+  "planning": {
+    "constraint_ignorance": "A plan ignores budget, time, inventory, or task constraints.",
+    "impossible_action": "A plan requires an action or prerequisite that is impossible.",
+    "inefficient_plan": "A plan could succeed but is excessively indirect or illogical."
+  },
+  "action": {
+    "misalignment": "The executed action contradicts the stated plan.",
+    "invalid_action": "The action is not in the available action set.",
+    "format_error": "The action cannot be parsed because it has invalid syntax.",
+    "parameter_error": "The action is valid in type but has an incorrect parameter."
+  },
+  "system": {
+    "step_limit": "The system reaches a maximum number of allowed steps.",
+    "tool_execution_error": "An external tool or API returns an error or unreliable result.",
+    "llm_limit": "The model response is blocked by timeout, token limits, or another model limit.",
+    "environment_error": "The simulation or external environment crashes or violates expected rules."
+  },
+  "others": {
+    "others": "A remaining failure not covered by the taxonomy."
+  }
+}

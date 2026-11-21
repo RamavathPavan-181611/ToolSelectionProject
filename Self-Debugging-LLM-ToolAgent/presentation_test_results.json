@@ -1,0 +1,64 @@
+{
+  "project": "AgentShield",
+  "date": "2026-11-19",
+  "unit_tests": {
+    "command": "python3 -m unittest -v",
+    "duration_seconds": 1.5,
+    "run": 19,
+    "passed": 19,
+    "failed": 0,
+    "pass_rate": 1.0
+  },
+  "api_smoke_tests": {
+    "provider_status": {
+      "endpoint": "GET /api/status",
+      "provider": "llama_cpp",
+      "available": true
+    },
+    "file_reader": {
+      "endpoint": "POST /api/run",
+      "query": "Read example.txt",
+      "use_tool": true,
+      "selected_tools": ["file_reader"],
+      "success": true
+    },
+    "calculator": {
+      "endpoint": "POST /api/run",
+      "query": "What is twelve times eight?",
+      "use_tool": true,
+      "selected_tools": ["calculator"],
+      "expression": "12 * 8",
+      "answer": "calculator: 96",
+      "success": true
+    },
+    "public_web_search": {
+      "query": "Python 3.15 release",
+      "tool": "web_search",
+      "provider": "DuckDuckGo Instant API and Wikipedia fallback",
+      "live_result_verified": true,
+      "success": true
+    },
+    "image_upload": {
+      "endpoint": "POST /api/upload",
+      "accepted_format": "PNG",
+      "upload_success": true
+    },
+    "image_inspection": {
+      "endpoint": "POST /api/run",
+      "tool": "image_inspector",
+      "verified_dimensions": "2 x 2",
+      "success": true
+    },
+    "ocr": {
+      "endpoint": "POST /api/run",
+      "tool": "ocr_image",
+      "verified_text": "AgentShield OCR Test",
+      "success": true
+    }
+  },
+  "limitations": [
+    "Validated locally across unit, API, persistence, web-search, and OCR smoke tests",
+    "Full external benchmark, load testing, and security review remain future work",
+    "No production authentication"
+  ]
+}

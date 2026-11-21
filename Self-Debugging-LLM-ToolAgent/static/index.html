@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgentShield — Self-Debugging Tool Agent</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">MetaTool × AgentDebug × GTA</p>
+      <h1>AgentShield</h1>
+      <p class="subtitle">A self-debugging local tool agent with transparent execution reports.</p>
+      <p id="provider-status" class="subtitle"></p>
+    </header>
+
+    <section class="grid">
+      <form id="request-form">
+        <label for="query">User request</label>
+        <textarea id="query" rows="4" required placeholder="Calculate 12 * 8 or count lines in this text"></textarea>
+
+        <label for="text">Optional supplied text</label>
+        <textarea id="text" rows="7" placeholder="Paste text for text_statistics or count_lines"></textarea>
+
+        <label for="image">Optional image upload</label>
+        <input id="image" type="file" accept="image/png,image/jpeg,image/heic,image/heif,image/tiff,image/bmp,image/gif,image/webp">
+        <p id="upload-status" class="subtitle"></p>
+
+        <button type="submit">Run Agent</button>
+      </form>
+
+      <aside>
+        <h2>Available tools</h2>
+        <div id="tools">Loading...</div>
+      </aside>
+    </section>
+
+    <section id="report" class="hidden">
+      <h2>Execution report</h2>
+      <div class="metrics">
+        <article><span>Tool needed</span><strong id="use-tool">—</strong></article>
+        <article><span>Selected tools</span><strong id="selected-tools">—</strong></article>
+        <article><span>Recovered</span><strong id="recovered">—</strong></article>
+      </div>
+
+      <h3>Plan</h3>
+      <ol id="plan"></ol>
+
+      <h3>Tool calls</h3>
+      <div id="calls"></div>
+
+      <h3>Answer</h3>
+      <pre id="answer"></pre>
+
+      <h3>Diagnostic report</h3>
+      <pre id="diagnostics"></pre>
+    </section>
+
+    <section id="history" class="history-section">
+      <h2>Persistent execution history</h2>
+      <p class="subtitle">Stored locally in SQLite and preserved across server restarts.</p>
+      <div id="history-list">Loading...</div>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+AgentShield combines tool awareness, executable tool calls, failure diagnosis,
+and corrective feedback into one local agent pipeline.
